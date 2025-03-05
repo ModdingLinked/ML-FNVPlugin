@@ -6,11 +6,11 @@
 #include "falloutnvmoddatacontent.h"
 #include "falloutnvsavegame.h"
 #include "falloutnvscriptextender.h"
+#include "falloutnvgameplugins.h"
 
 #include "executableinfo.h"
 #include "pluginsetting.h"
 #include "versioninfo.h"
-#include <gamebryogameplugins.h>
 #include <gamebryolocalsavegames.h>
 #include <gamebryosavegameinfo.h>
 #include <gamebryounmanagedmods.h>
@@ -44,7 +44,7 @@ bool GameFalloutNV::init(IOrganizer* moInfo)
   registerFeature(std::make_shared<FalloutNVModDataChecker>(this));
   registerFeature(
       std::make_shared<FalloutNVModDataContent>(m_Organizer->gameFeatures()));
-  registerFeature(std::make_shared<GamebryoGamePlugins>(moInfo));
+  registerFeature(std::make_shared<FalloutNVGamePlugins>(moInfo));
   registerFeature(std::make_shared<GamebryoUnmangedMods>(this));
 
   return true;
